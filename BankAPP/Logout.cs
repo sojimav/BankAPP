@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BankAPP
 {
-    internal class Logout
+     public class Logout
     {
+        public static void LogOut()
+        {
+
+        }
     }
 }

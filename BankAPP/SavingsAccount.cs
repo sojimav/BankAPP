@@ -20,7 +20,7 @@ namespace BankAPP
             }
         }
 
-        DataBase dataBase = new DataBase(customersFullName, AssignedAccountNo, AccountType, AccountBalance);
+        AllAccounts dataBase = new AllAccounts(customersFullName, AssignedAccountNo, AccountType, AccountBalance);
         public SavingsAccount(string customer, string assignedAccountNo)
         {
             customersFullName = customer;

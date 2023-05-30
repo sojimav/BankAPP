@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace BankAPP
 {
-    internal class Transfer
+    public class Transfer
     {
+        public static decimal TransferAmount { set; get; }
+
+        public static void Transferred()
+        {
+
+        }
     }
 }

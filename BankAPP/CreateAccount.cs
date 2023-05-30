@@ -32,6 +32,7 @@ namespace BankAPP
 
            public static void CreateCustomerAccount()
             {
+                Prompt();
                 FirstName();
                 LastName();
                 Email();
@@ -39,9 +40,15 @@ namespace BankAPP
                 ConfirmPassword();
                 SelectAccountType();
                 PromptUser.AfterAccountCreationPrompt();
-                
-            }
 
+        }
+
+             static void Prompt()
+            {
+              Console.ForegroundColor = ConsoleColor.Red;
+              Console.WriteLine("\nInput the following Details to create your Account\n");
+              Console.ResetColor();
+            }
 
              static void FirstName()
             {
@@ -90,17 +97,20 @@ namespace BankAPP
             {
                 Current();
             }
+
+            
         }
 
          
             static void Savings()
-            {    Console.Clear();
+            {    
                 AccountType = "Savings";
                 SavingsAccount SaccountNo = new SavingsAccount(FullName, Snumber);
                 Snumber = SaccountNo.SavingsAccountGenerator();
-                Console.WriteLine($"Congratulations {_LastName}, a Savings account number {Snumber} has been generated for you.");
-             
-            }
+               Console.ForegroundColor = ConsoleColor.Green;
+               Console.WriteLine($"\nCongratulations {_LastName}, a Savings account number {Snumber} has been generated for you.\n\n");
+               Console.ResetColor();
+        }
                 
             
              static void Current()
@@ -108,7 +118,9 @@ namespace BankAPP
                 AccountType = "Current";
                 CurrentAccount CaccountNo = new CurrentAccount(FullName, Cnumber);
                 Cnumber = CaccountNo.CurrentAccountGenerator();
-                Console.WriteLine($"Congratulations {_LastName}, a Current account number {Cnumber} has been generated for you.");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"\n\nCongratulations {_LastName}, a Current account number {Cnumber} has been generated for you.\n\n");
+                Console.ResetColor();
              }              
           
     }        

@@ -21,7 +21,7 @@ namespace BankAPP
             }
         }
 
-        DataBase dataBase = new DataBase(customersFullName, AssignedAccountNo, AccountType, AccountBalance);
+        AllAccounts dataBase = new AllAccounts(customersFullName, AssignedAccountNo, AccountType, AccountBalance);
 
 
         public CurrentAccount(string customer, string assignedAccountNo)

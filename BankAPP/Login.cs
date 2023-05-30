@@ -22,8 +22,9 @@ namespace BankAPP
 
         static void Prompt()
         {
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Enter Login details, Full Name and Password!");
+            Console.WriteLine("Enter Login details (Full Name and Password!)\n");
             Console.ResetColor();
         }
         static void FullName()

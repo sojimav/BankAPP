@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BankAPP
 {
-    internal class Statement
+    public class Statement
     {
+        public static void GetStatment()
+        {
+
+        }
     }
 }

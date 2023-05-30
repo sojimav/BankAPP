@@ -9,7 +9,7 @@ namespace BankAPP
     abstract class Deposit : IBalance
     {
         public static decimal DepositAccount { set; get; }
-        public void DepositToAccount()
+        public  static void DepositToAccount()
         {
             Console.WriteLine("Enter amount to Deposit");
             DepositAccount = decimal.Parse(Console.ReadLine());

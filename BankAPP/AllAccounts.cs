@@ -6,18 +6,23 @@ using System.Threading.Tasks;
 
 namespace BankAPP
 {
-    public class DataBase
+    public class AllAccounts
     {
         public string customersFullName;
         public string AccountNumber;
         public string AccountType;
-        public decimal AccountBalance;
-        public DataBase(string customersFullName, string AccountNumber, string AccountType, decimal AccountBalance)
+        public static decimal AccountBalance;
+        public AllAccounts(string customersFullName, string AccountNumber, string AccountType, decimal accountBalance)
         {
             this.customersFullName = customersFullName;
             this.AccountNumber = AccountNumber;
             this.AccountType = AccountType;
-            this.AccountBalance = AccountBalance;
+            AccountBalance = accountBalance;
+        }
+
+        public static void ShowBalance()
+        {
+            Console.WriteLine(AccountBalance);
         }
         
 

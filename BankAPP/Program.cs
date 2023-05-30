@@ -6,7 +6,7 @@ namespace BankAPP
     class Program
     {
 
-        List<DataBase> list = new List<DataBase>();
+        List<AllAccounts> list = new List<AllAccounts>();
         public static void Main(string[] args)
         {
             PromptUser.InitialPrompt();

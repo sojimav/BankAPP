@@ -8,6 +8,11 @@ namespace BankAPP
 {
     public class Withdraw
     {
+        public static decimal Withdrawal { get ; set; }
 
+        public static void WithdrawAmount()
+        {
+
+        }
     }
 }

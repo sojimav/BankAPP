@@ -38,6 +38,8 @@ namespace BankAPP
                 Password();
                 ConfirmPassword();
                 SelectAccountType();
+                PromptUser.AfterAccountCreationPrompt();
+                
             }
 
 
@@ -69,13 +71,14 @@ namespace BankAPP
 
 
              static void ConfirmPassword()
-            {
+            {           
                 Console.Write("Confirm Your Password:\n");
                 _ConfirmPassword = Console.ReadLine();
              }
 
         public static void SelectAccountType()
         {
+            Console.Clear();
             Console.WriteLine("Please Select Account Type \n");
             Console.Write("Enter 1 for Savings Account or 2 for Current Account: ");
             readInput = Console.ReadLine();
@@ -91,22 +94,22 @@ namespace BankAPP
 
          
             static void Savings()
-            {
+            {    Console.Clear();
                 AccountType = "Savings";
                 SavingsAccount SaccountNo = new SavingsAccount(FullName, Snumber);
                 Snumber = SaccountNo.SavingsAccountGenerator();
-                Console.WriteLine($"Congratulations {LastName}, a Savings account number {Snumber} has been generated for you.");           
+                Console.WriteLine($"Congratulations {_LastName}, a Savings account number {Snumber} has been generated for you.");
+             
             }
                 
             
              static void Current()
              {
                 AccountType = "Current";
-                CurrentAccount CaccountNo = new CurrentAccount(FullName);
+                CurrentAccount CaccountNo = new CurrentAccount(FullName, Cnumber);
                 Cnumber = CaccountNo.CurrentAccountGenerator();
-                Console.WriteLine($"Congratulations {LastName}, a Current account number {Cnumber} has been generated for you.");
-             }
-                
+                Console.WriteLine($"Congratulations {_LastName}, a Current account number {Cnumber} has been generated for you.");
+             }              
           
-    }
+    }        
 }

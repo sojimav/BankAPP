@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BankAPP
 {
-    public class GetBalance
+    public interface IBalance
     {
+        public  decimal GetBalance();
     }
 }

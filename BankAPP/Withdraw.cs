@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BankAPP
 {
-    internal class Withdraw
+    public class Withdraw
     {
+
     }
 }

@@ -8,14 +8,18 @@ namespace BankAPP
 {
     public class DataBase
     {
-        public List<string> customerDetails;
-        public DataBase(List<string> customerDetails)
+        public string customersFullName;
+        public string AccountNumber;
+        public string AccountType;
+        public decimal AccountBalance;
+        public DataBase(string customersFullName, string AccountNumber, string AccountType, decimal AccountBalance)
         {
-            this.customerDetails = customerDetails;
+            this.customersFullName = customersFullName;
+            this.AccountNumber = AccountNumber;
+            this.AccountType = AccountType;
+            this.AccountBalance = AccountBalance;
         }
-        public Dictionary<string, List<string>> StoreDetails()
-        {
+        
 
-        }
     }
 }

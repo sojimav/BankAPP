@@ -1,2 +1,15 @@
-﻿// See https://aka.ms/new-console-template for more information
-//Console.WriteLine("Hello, World!");
+﻿using System;
+
+
+namespace BankAPP
+{
+    class Program
+    {
+
+        List<DataBase> list = new List<DataBase>();
+        public static void Main(string[] args)
+        {
+            PromptUser.InitialPrompt();
+        }
+    }
+}

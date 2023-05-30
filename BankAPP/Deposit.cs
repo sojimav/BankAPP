@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace BankAPP
 {
-    internal class Deposit
+    abstract class Deposit : IBalance
     {
+        public static decimal DepositAccount { set; get; }
+        public void DepositToAccount()
+        {
+            Console.WriteLine("Enter amount to Deposit");
+            DepositAccount = decimal.Parse(Console.ReadLine());
+
+        }
+
+        public decimal GetBalance()
+        {
+            return DepositAccount;
+        }
     }
 }

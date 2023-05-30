@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace BankAPP
 {
-    public class SavingsAccount
+    public class SavingsAccount : IBalance
     {
         public static string SavingsAccountNo { set; get; }
         public static string customersFullName;
         public static string AssignedAccountNo;
+        public static decimal AccountBalance;
         public static  string AccountType
         {
             get
@@ -18,13 +19,13 @@ namespace BankAPP
                 return "Savings";
             }
         }
+
+        DataBase dataBase = new DataBase(customersFullName, AssignedAccountNo, AccountType, AccountBalance);
         public SavingsAccount(string customer, string assignedAccountNo)
         {
             customersFullName = customer;
             AssignedAccountNo = assignedAccountNo;
         }
-
-        
 
         public string SavingsAccountGenerator()
         {
@@ -35,13 +36,11 @@ namespace BankAPP
 
         }
 
-        static void StoreDetails()
+        public decimal GetBalance()
         {
-
-           // DataBase dataBase = new DataBase(customersFullName);
-        }
-         
-              
+            AccountBalance = Deposit.DepositAccount;
+            return AccountBalance;
+        }    
       
     }
 }

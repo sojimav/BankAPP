@@ -1,15 +1,19 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BankAPP
 {
-    class Program
+    public class Program
     {
 
-        List<AllAccounts> list = new List<AllAccounts>();
+        public static List<AllAccounts> addDetails = new List<AllAccounts>();
+             
         public static void Main(string[] args)
         {
-            PromptUser.InitialPrompt();
+            PromptUser.InitialPrompt();  
         }
     }
 }

@@ -8,26 +8,41 @@ namespace BankAPP
 {
     public class PromptUser
     {
-          public static string collectInput;
         public static void InitialPrompt()
         {
-            Console.Clear();
-            Console.WriteLine("Welcome to Mavics Bank\n");
-            Console.Write("Press 1 to Create Account or 2 to Login: ");
-            collectInput = Console.ReadLine();
-            Selection(collectInput);
+             string collectInput;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("\nWelcome to Mavics Bank\n");
+                Console.Write("Press 1 to Create an Account or Q to Exit: "); 
+                collectInput = Console.ReadLine()!;
+                if (Validation.InitialPromptValidation(collectInput.ToUpper()))
+                {
+                    Selection(collectInput);
+                }
+                                       
+            }
+            while(!Validation.InitialPromptValidation(collectInput.ToUpper()));
+            
 
         }
 
         public static void AfterAccountCreationPrompt()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Input the Corresponding digit\n");
-            Console.ResetColor();
-            Console.Write(">>1: Create Another Account\n>>2: Login\n>>Q: To Quit\n" +
-                "Enter Your Option: ");
-            collectInput = Console.ReadLine();
-            Selection(collectInput);
+            string afterAccountCreation = "";
+            do
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Input the Corresponding digit\n");
+                Console.ResetColor();
+                Console.Write(">>2: Login\n>>Q: To Quit\n" +
+                    "Enter Your Option: ");
+                afterAccountCreation = Console.ReadLine();
+                Selection(afterAccountCreation);
+            }
+            while (!Validation.AfterAccPrompt(afterAccountCreation));
+           
 
         }
 
@@ -35,19 +50,28 @@ namespace BankAPP
 
         public static void AfterLoginPrompt()
         {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Enter the corresponding digit for your operation\n");
-            Console.ResetColor();
-            Console.Write(">>3: Deposit\n>>4: Withdrawal\n>>5: Transfer\n>>6: Check Balance\n>>7: " +
-                "Get Account Statement\n>>8: Log Out\n>>1: Create Another Account\n>>Q: To Quit\n\nEnter Your Choice: ");
-               collectInput =  Console.ReadLine();
-
-            Selection(collectInput);
+            string AfterLoginPrompt = "";
+            do
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Enter the corresponding value for your operation\n");
+                Console.ResetColor();
+                Console.Write(">>C: Create Another Account\n>>3: Deposit\n>>4: Withdrawal\n>>5: Transfer\n>>6: Check Balance\n>>7: " +
+                    "Display Account Details\n>>8: Get Account Statement\n>>9: Log Out\n>>Q: To Quit\n\nEnter Your Choice: ");
+                AfterLoginPrompt = Console.ReadLine().ToUpper();
+                if (Validation.Prompt(AfterLoginPrompt.ToUpper()))
+                {
+                    Selection(AfterLoginPrompt.ToUpper());
+                }
+               
+            }while(!Validation.Prompt(AfterLoginPrompt.ToUpper()));
+           
         }
 
+           
         static void Selection(string param)
         {
+
             switch (param)
             {
                 case "1":
@@ -60,7 +84,7 @@ namespace BankAPP
                     break;
                 case "3":
                     Console.Clear();
-                    Deposit.DepositToAccount();
+                    Deposit.CollectAccountNo();
                     break;
                 case "4":
                     Console.Clear();
@@ -70,13 +94,25 @@ namespace BankAPP
                     Console.Clear();
                     Transfer.Transferred();
                     break;
-                case "6":
-                    Console.Clear();
-                    AllAccounts.ShowBalance();
-                    break;
+            /// need to put a switch case for getbalance
                 case "7":
                     Console.Clear();
+                    AccountDetails.Details();
+                    break;
+                case "8":
+                    Console.Clear();
                     Statement.GetStatment();
+                    break;
+                case "9":
+                    Console.Clear();
+                    Logout.LogOut();
+                    break;
+                case "C":
+                    Console.Clear();
+                    CreateAccount.AddMoreAccount();
+                    break;
+                case "Q":
+                    Environment.Exit(0);
                     break;
                 default:
                     Console.Clear();

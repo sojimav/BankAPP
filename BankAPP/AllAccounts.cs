@@ -11,7 +11,7 @@ namespace BankAPP
         public string customersFullName;
         public string AccountNumber;
         public string AccountType;
-        public static decimal AccountBalance;
+        public  decimal AccountBalance;
         public AllAccounts(string customersFullName, string AccountNumber, string AccountType, decimal accountBalance)
         {
             this.customersFullName = customersFullName;
@@ -19,12 +19,7 @@ namespace BankAPP
             this.AccountType = AccountType;
             AccountBalance = accountBalance;
         }
-
-        public static void ShowBalance()
-        {
-            Console.WriteLine(AccountBalance);
-        }
-        
+         
 
     }
 }

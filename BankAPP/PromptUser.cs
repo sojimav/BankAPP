@@ -33,13 +33,17 @@ namespace BankAPP
             string afterAccountCreation = "";
             do
             {
+                Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Input the Corresponding digit\n");
                 Console.ResetColor();
                 Console.Write(">>2: Login\n>>Q: To Quit\n" +
                     "Enter Your Option: ");
                 afterAccountCreation = Console.ReadLine();
-                Selection(afterAccountCreation);
+                if (Validation.AfterAccPrompt(afterAccountCreation))
+                {
+                    Selection(afterAccountCreation);
+                }   
             }
             while (!Validation.AfterAccPrompt(afterAccountCreation));
            

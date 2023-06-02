@@ -35,7 +35,19 @@ namespace BankAPP
 
         public static void DisplayBalance()
         {
+            decimal balance = 0;
+           Console.WriteLine("Input Account Number");
+            string accountNo = Console.ReadLine(); 
+            Validation.checkAccountNo(accountNo);
 
+           var theAccountRow = Validation.CompareAccounts(accountNo);
+            if(theAccountRow != null)
+            {
+                balance =  theAccountRow.AccountBalance;
+                Console.WriteLine($"Your {theAccountRow.AccountType} account balance is {balance}");
+            }
+
+            PromptUser.AfterLoginPrompt();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,16 +10,18 @@ namespace BankAPP
     public class Deposit 
     {
         public static decimal DepositAmount { set; get; }
-    
+        
+        private static string AccountAction = "deposit";
+  
         public static void CollectAccountNo()
         {
-            
-                Console.WriteLine("Input Your Account No");
-                string getAccoutNo = Console.ReadLine();
-            
-                Console.Write("Amount must be 1000 or more!\nEnter amount to Deposit: ");
-                DepositAmount = decimal.Parse(Console.ReadLine());
-                Console.WriteLine();
+             string getAccoutNo;
+            Console.WriteLine("Input Your Account No");
+            getAccoutNo = Console.ReadLine()!;
+            Validation.checkAccountNo(getAccoutNo);
+
+            DepositAmount = Validation.PerformAction(AccountAction);
+            Console.WriteLine();
 
                 if(DepositAmount < 1000)
                 {
@@ -28,15 +31,14 @@ namespace BankAPP
                     PromptUser.AfterLoginPrompt();
                 }
 
-
+            var accountsToUpdate = Validation.CompareAccounts(getAccoutNo); 
+            /*Program.addDetails.FirstOrDefault( row=> row.AccountNumber == getAccoutNo)*/;
 
             string result = "";
-            foreach (var item in Program.addDetails )
-            {
-                if(item.AccountNumber.Contains(getAccoutNo) && DepositAmount >= 1000)
+                if (accountsToUpdate != null)
                 {   
-                        item.AccountBalance += DepositAmount;
-                        result = item.AccountNumber;
+                        accountsToUpdate.AccountBalance += DepositAmount;
+                        result = accountsToUpdate.AccountNumber;
                         Console.WriteLine($"Congratulations, {DepositAmount} has been deposited" +
                         $" successfully into your account {result}");
                 }
@@ -47,11 +49,7 @@ namespace BankAPP
                     Console.ResetColor();
                     PromptUser.AfterLoginPrompt();
                 }
-                
-            }
-
-            
-            
+                            
             PromptUser.AfterLoginPrompt();
         }
 

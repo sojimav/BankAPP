@@ -92,9 +92,12 @@ namespace BankAPP
                     break;
                 case "5":
                     Console.Clear();
-                    Transfer.Transferred();
+                    Transfer.TransferMoney();
                     break;
-            /// need to put a switch case for getbalance
+                case "6":
+                    Console.Clear();
+                    AccountDetails.DisplayBalance();
+                    break;
                 case "7":
                     Console.Clear();
                     AccountDetails.Details();

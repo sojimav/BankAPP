@@ -8,26 +8,26 @@ namespace BankAPP
 {
     public class Withdraw
     {
-        public static decimal Withdrawal { get ; set; }
+        public static decimal Withdrawal { get; set; }
+        private static string ActionAction = "withdraw";
 
         public static void WithdrawAmount()
         {
             Console.WriteLine("Input Your Account No");
-            string getAccoutNo = Console.ReadLine();
-
-
-            Console.Write("Enter amount to Withdraw:");
-             Withdrawal = decimal.Parse(Console.ReadLine());
+            string getAccountNo = Console.ReadLine();
+            Validation.checkAccountNo(getAccountNo);
+            
+             Withdrawal = Validation.PerformAction(ActionAction);
+            var accountToUpdate = Validation.CompareAccounts(getAccountNo);
 
             string result = "";
-            foreach (var accounts in Program.addDetails)
-            {
-                if (accounts.AccountNumber.Contains(getAccoutNo) && accounts.AccountType == "Savings")
+       
+                if (accountToUpdate != null && accountToUpdate.AccountType == "Savings")
                 {
-                    if(accounts.AccountBalance >= Withdrawal)
+                    if(accountToUpdate.AccountBalance >= Withdrawal)
                     {
-                        accounts.AccountBalance -= Withdrawal;
-                        result = accounts.AccountNumber;
+                        accountToUpdate.AccountBalance -= Withdrawal;
+                        result = accountToUpdate.AccountNumber;
                     }
                     else
                     {
@@ -37,12 +37,12 @@ namespace BankAPP
                         PromptUser.AfterLoginPrompt();
                     }
                 }
-                if(accounts.AccountNumber.Contains(getAccoutNo) && accounts.AccountType == "Current")
+                if(accountToUpdate != null && accountToUpdate.AccountType == "Current")
                 {
-                    if(accounts.AccountBalance > 1000 && accounts.AccountBalance > Withdrawal)
+                    if(accountToUpdate.AccountBalance > 1000 && accountToUpdate.AccountBalance > Withdrawal)
                     {
-                        accounts.AccountBalance -= Withdrawal;
-                        result = accounts.AccountNumber;
+                        accountToUpdate.AccountBalance -= Withdrawal;
+                        result = accountToUpdate.AccountNumber;
                      Console.WriteLine($"Congratulations, {Withdrawal} has been Withdrawn " +
                         $"successfully from your account {result}");
                     }
@@ -55,7 +55,7 @@ namespace BankAPP
                     }
                 }
                    
-            }
+            //}
 
             
 

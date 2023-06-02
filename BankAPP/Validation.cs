@@ -95,7 +95,7 @@ namespace BankAPP
             bool isValid = false;
             switch (value)
             {
-                case "1": case "2": case "3": case "4": case "5": case "6":
+                case "3": case "4": case "5": case "6":
                 case "7": case "8":  case "9": case "C": case "Q":
                 isValid = true;
                 break;
@@ -115,6 +115,45 @@ namespace BankAPP
 
             return isValid;
 
+        }
+
+        public static void checkAccountNo(string accountNo)
+        {
+            if (String.IsNullOrWhiteSpace(accountNo) || accountNo.Length < 10)
+            if(CompareAccounts(accountNo) == null) 
+             { 
+                Console.WriteLine("Invalid Input, Account numner does not exist!");
+                PromptUser.AfterLoginPrompt();
+            }
+        }
+
+        public static decimal PerformAction(string action)
+        {
+            string checker;
+            decimal validAmount = 0;
+            do
+            {
+                Console.Clear();
+                Console.Write($"Enter amount to {action} or D for DashBoard: ");
+                checker = Console.ReadLine()!;
+
+                if (checker == "D".ToLower())
+                {
+                    PromptUser.AfterLoginPrompt();
+                }
+            } 
+            while (!decimal.TryParse(checker, out validAmount));
+
+            return validAmount;
+
+        }
+
+   
+        public static AllAccounts CompareAccounts(string AccountNo)
+        {
+            var collectAllRows = Program.addDetails.FirstOrDefault(row => row.AccountNumber == AccountNo);
+
+            return collectAllRows;
         }
     }
     

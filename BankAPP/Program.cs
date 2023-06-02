@@ -10,7 +10,7 @@ namespace BankAPP
     {
 
         public static List<AllAccounts> addDetails = new List<AllAccounts>();
-             
+        
         public static void Main(string[] args)
         {
             PromptUser.InitialPrompt();  

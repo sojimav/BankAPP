@@ -172,7 +172,7 @@ namespace BankAPP
                 AccountGenerator();
                 AccountType = "Current";
             AllAccounts account = new AllAccounts(FullName, accountGenerator, AccountType, accountBalance);
-            Program.addDetails.Add(account);
+             Program.addDetails.Add(account);
             Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"\n\nCongratulations {_LastName}, a Current account number {accountGenerator} has been generated for you.\n\n");
                 Console.ResetColor();

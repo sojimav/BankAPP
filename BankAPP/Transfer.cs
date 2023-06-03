@@ -26,9 +26,13 @@ namespace BankAPP
             var account1 = Validation.CompareAccounts(sendersAccount);
             var account2 = Validation.CompareAccounts(recipentAccount);
 
-            if(amountToTransfer < account1.AccountBalance && 
-                amountToTransfer > 0 || account1.AccountType == "Current" 
-                && account1.AccountBalance > 1000)
+
+            if (account1.AccountType == "Current" && (account1.AccountBalance - amountToTransfer) < 1000)
+            {
+                Console.WriteLine("\u001b[31m Insufficient Balance, Current Account can't be below 1000!.\u001b[0m");
+                PromptUser.AfterLoginPrompt();
+            }
+                if (amountToTransfer < account1.AccountBalance && amountToTransfer > 0)
             {
                 account1.AccountBalance -= amountToTransfer;
                 account2.AccountBalance += amountToTransfer;
@@ -36,7 +40,8 @@ namespace BankAPP
             }
             else
             {
-                Console.WriteLine("\u001b[31m Insufficient Balance!.\u001b[0m");
+              
+               Console.WriteLine("\u001b[31m Insufficient Balance!.\u001b[0m");
             }
             PromptUser.AfterLoginPrompt();
         }

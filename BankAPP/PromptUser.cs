@@ -33,7 +33,6 @@ namespace BankAPP
             string afterAccountCreation = "";
             do
             {
-                Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Input the Corresponding digit\n");
                 Console.ResetColor();
@@ -49,8 +48,6 @@ namespace BankAPP
            
 
         }
-
-       
 
         public static void AfterLoginPrompt()
         {

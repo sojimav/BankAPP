@@ -23,7 +23,7 @@ namespace BankAPP
              string display = "";
             foreach (AllAccounts accounts in Program.addDetails)
             {
-                display += $"|{accounts.customersFullName, 22} | {accounts.AccountNumber, 16} | {accounts.AccountType, 18} | {accounts.AccountBalance, 17}|\n";
+                display += $"|{accounts.customersFullName, 22}  | {accounts.AccountNumber, 16} | {accounts.AccountType, 18} | {accounts.AccountBalance, 17}|\n";
                 
             }
 

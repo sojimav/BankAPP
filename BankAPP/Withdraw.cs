@@ -14,7 +14,7 @@ namespace BankAPP
         public static void WithdrawAmount()
         {
             Console.WriteLine("Input Your Account No");
-            string getAccountNo = Console.ReadLine();
+            string getAccountNo = Console.ReadLine()!;
             Validation.checkAccountNo(getAccountNo);
             
              Withdrawal = Validation.PerformAction(ActionAction);
@@ -45,6 +45,14 @@ namespace BankAPP
                         result = accountToUpdate.AccountNumber;
                      Console.WriteLine($"Congratulations, {Withdrawal} has been Withdrawn " +
                         $"successfully from your account {result}");
+                    accountToUpdate.TransactionRecords.Add(new TransactionRecords
+                    {
+                        GetDateTime = DateTime.Now,
+                        Description = "Withdrawal",
+                        TransactionAmount = Withdrawal,
+                        Balance = accountToUpdate.AccountBalance,
+
+                    });
                     }
                     else
                     {
@@ -54,10 +62,7 @@ namespace BankAPP
 
                     }
                 }
-                   
-            //}
-
-            
+                  
 
             PromptUser.AfterLoginPrompt();
         }

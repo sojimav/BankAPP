@@ -68,7 +68,7 @@ namespace BankAPP
                     Console.WriteLine("\nName must start with a Capital Letter!\n");
                     Console.ResetColor();
                     Console.Write("Enter First Name:\n");
-                    _FirstName = Console.ReadLine();
+                    _FirstName = Console.ReadLine()!;
                 }
             while(!Validation.NameValidation(_FirstName));
                    
@@ -84,7 +84,7 @@ namespace BankAPP
                     Console.WriteLine("\nName must start with a Capital Letter!\n");
                     Console.ResetColor();
                 Console.Write("Enter Last Name:\n");
-                    _LastName = Console.ReadLine();
+                    _LastName = Console.ReadLine()!;
                 }
                 while(!Validation.NameValidation(_LastName));
                
@@ -99,7 +99,7 @@ namespace BankAPP
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nEnter a Valid Email Format!\n");
                    Console.ResetColor();   
-                    _Email = Console.ReadLine();
+                    _Email = Console.ReadLine()!;
                 }
                 while(!Validation.EmailValidation(_Email));
                
@@ -114,7 +114,7 @@ namespace BankAPP
                 Console.WriteLine("\nPassword must be 6 character with at least 1 special charater and 1 digt!\n");
                 Console.ResetColor();
                 Console.Write("Create Your Password:\n");
-                _Password = Console.ReadLine();
+                _Password = Console.ReadLine()!;
             }
             while (!Validation.PasswordValidation(_Password));
                 
@@ -126,7 +126,7 @@ namespace BankAPP
                 do
                 {
                     Console.Write("Confirm Your Password:\n");
-                    _ConfirmPassword = Console.ReadLine();
+                    _ConfirmPassword = Console.ReadLine()!;
                 }        
                 while(_Password != _ConfirmPassword);
              }
@@ -139,7 +139,7 @@ namespace BankAPP
                 Console.Clear();
                 Console.WriteLine("Please Select Account Type \n");
                 Console.Write("Enter 1 for Savings Account or 2 for Current Account: ");
-                readInput = Console.ReadLine();
+                readInput = Console.ReadLine()!;
                 if (readInput == "1")
                 {
                     Savings();

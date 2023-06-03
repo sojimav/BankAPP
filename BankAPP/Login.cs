@@ -32,7 +32,7 @@ namespace BankAPP
             do
             {
                 Console.Write("Enter Your Email:\n");
-                email = Console.ReadLine();
+                email = Console.ReadLine()!;
 
                 if(email != CreateAccount._Email)
                 {
@@ -50,7 +50,7 @@ namespace BankAPP
             do
             {
                 Console.Write("Enter Password:\n");
-                password = Console.ReadLine();
+                password = Console.ReadLine()!;
                 if(password != CreateAccount._Password)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;

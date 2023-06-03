@@ -23,7 +23,7 @@ namespace BankAPP
              string display = "";
             foreach (AllAccounts accounts in Program.addDetails)
             {
-                display += $"{accounts.customersFullName, 10} | {accounts.AccountNumber, 10} | {accounts.AccountType, 10} | {accounts.AccountBalance, 10}\n";
+                display += $"|{accounts.customersFullName, 22} | {accounts.AccountNumber, 16} | {accounts.AccountType, 18} | {accounts.AccountBalance, 17}|\n";
                 
             }
 
@@ -37,7 +37,7 @@ namespace BankAPP
         {
             decimal balance = 0;
            Console.WriteLine("Input Account Number");
-            string accountNo = Console.ReadLine(); 
+            string accountNo = Console.ReadLine()!; 
             Validation.checkAccountNo(accountNo);
 
            var theAccountRow = Validation.CompareAccounts(accountNo);

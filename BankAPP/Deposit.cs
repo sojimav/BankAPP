@@ -41,6 +41,14 @@ namespace BankAPP
                         result = accountsToUpdate.AccountNumber;
                         Console.WriteLine($"Congratulations, {DepositAmount} has been deposited" +
                         $" successfully into your account {result}");
+                       accountsToUpdate.TransactionRecords.Add(new TransactionRecords
+                {
+                    GetDateTime = DateTime.Now,
+                    Description = "Deposit",
+                    TransactionAmount = DepositAmount,
+                    Balance = accountsToUpdate.AccountBalance,
+                });
+                        
                 }
                 else
                 {

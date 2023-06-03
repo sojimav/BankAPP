@@ -37,6 +37,21 @@ namespace BankAPP
                 account1.AccountBalance -= amountToTransfer;
                 account2.AccountBalance += amountToTransfer;
                 Console.WriteLine($"{amountToTransfer} has been sent to {account2.AccountType} account no {account2.AccountNumber}");
+                account1.TransactionRecords.Add(new TransactionRecords
+                {
+                    GetDateTime = DateTime.Now,
+                    Description = $"Sent to {account2.AccountNumber}",
+                    TransactionAmount = amountToTransfer,
+                    Balance = account1.AccountBalance,
+                });
+
+                account2.TransactionRecords.Add(new TransactionRecords
+                {
+                    GetDateTime = DateTime.Now,
+                    Description = $"Received from {account1.AccountNumber}",
+                    TransactionAmount = amountToTransfer,
+                    Balance = account1.AccountBalance,
+                });
             }
             else
             {

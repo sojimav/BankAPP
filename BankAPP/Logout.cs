@@ -10,7 +10,7 @@ namespace BankAPP
     {
         public static void LogOut()
         {
-
+           PromptUser.AfterAccountCreationPrompt();
         }
     }
 }

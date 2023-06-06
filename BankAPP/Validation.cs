@@ -126,7 +126,7 @@ namespace BankAPP
             if (String.IsNullOrWhiteSpace(accountNo) || accountNo.Length < 10)
             if(CompareAccounts(accountNo) == null) 
              { 
-                Console.WriteLine("Invalid Input, Account numner does not exist!");
+                Console.WriteLine("Invalid Input, Account number does not exist!");
                 PromptUser.AfterLoginPrompt();
             }
         }

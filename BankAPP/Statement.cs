@@ -19,7 +19,7 @@ namespace BankAPP
             var theAccountRow = Validation.CompareAccounts(accountNo);
             Console.Clear();
             Console.WriteLine();
-            string display = "";
+            //string display = "";
 
 
             var table = new ConsoleTable("Date", "Description", "Amount", "Balance");

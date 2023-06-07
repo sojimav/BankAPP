@@ -38,7 +38,7 @@ namespace BankAPP
                 Console.ResetColor();
                 Console.Write(">>2: Login\n>>Q: To Quit\n" +
                     "Enter Your Option: ");
-                afterAccountCreation = Console.ReadLine();
+                afterAccountCreation = Console.ReadLine()!;
                 if (Validation.AfterAccPrompt(afterAccountCreation))
                 {
                     Selection(afterAccountCreation);
@@ -59,7 +59,7 @@ namespace BankAPP
                 Console.ResetColor();
                 Console.Write(">>C: Create Another Account\n>>3: Deposit\n>>4: Withdrawal\n>>5: Transfer\n>>6: Check Balance\n>>7: " +
                     "Display Account Details\n>>8: Get Account Statement\n>>9: Log Out\n>>Q: To Quit\n\nEnter Your Choice: ");
-                AfterLoginPrompt = Console.ReadLine().ToUpper();
+                AfterLoginPrompt = Console.ReadLine()!.ToUpper();
                 if (Validation.Prompt(AfterLoginPrompt.ToUpper()))
                 {
                     Selection(AfterLoginPrompt.ToUpper());

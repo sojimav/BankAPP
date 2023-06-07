@@ -157,7 +157,7 @@ namespace BankAPP
         {
             var collectAllRows = Program.addDetails.FirstOrDefault(row => row.AccountNumber == AccountNo);
 
-            return collectAllRows;
+            return collectAllRows!;
         }
     }
     

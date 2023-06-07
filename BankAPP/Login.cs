@@ -9,8 +9,8 @@ namespace BankAPP
    
     public class Login
     {
-        public static string email;
-        public static string password;
+        public static string email = "";
+        public static string password = "";
 
         public static void CollectLoginDetails()
         {

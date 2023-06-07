@@ -106,6 +106,7 @@ namespace BankAPP
 
         public static bool AfterAccPrompt(string value)
         {
+            value = value.ToUpper();
             bool isValid = false;
 
              if(value == "2" || value == "Q")

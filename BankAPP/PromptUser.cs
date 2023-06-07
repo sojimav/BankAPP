@@ -39,9 +39,9 @@ namespace BankAPP
                 Console.Write(">>2: Login\n>>Q: To Quit\n" +
                     "Enter Your Option: ");
                 afterAccountCreation = Console.ReadLine()!;
-                if (Validation.AfterAccPrompt(afterAccountCreation))
+                if (Validation.AfterAccPrompt(afterAccountCreation.ToUpper()))
                 {
-                    Selection(afterAccountCreation);
+                    Selection(afterAccountCreation.ToUpper());
                 }   
             }
             while (!Validation.AfterAccPrompt(afterAccountCreation));

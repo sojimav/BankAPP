@@ -15,7 +15,7 @@ namespace BankAPP
             bool IsValid = false;
             if (!string.IsNullOrWhiteSpace(userInput))
             {
-                if(userInput == "1" || userInput == "Q")
+                if(userInput == "1" || userInput.ToUpper() == "Q")
                 {
                     IsValid = true;
                 }
